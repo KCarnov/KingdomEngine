@@ -21,11 +21,9 @@
 #include "Sources/Inputs/Raycast.h"
 
 #include "Sources/Terrain/TerrainGenerator.h"
-#include "Spaceship/MarchingCubes.h"
 
 #include "Components/TransformComponent.h"
 #include "Components/VelocityComponent.h"
-#include "Spaceship/SpaceshipBlueprint.h"
 
 
 class Texture;
@@ -59,8 +57,7 @@ private:
 	Texture* texT;
 	Texture* texT2;
 	TerrainGenerator* m_Terrain;
-	SpaceshipBlueprint* ship_bp;
-	MarchingCubes* m_mc;
+
 
 	std::shared_ptr<Gizmos>  m_gizmos;
 private:

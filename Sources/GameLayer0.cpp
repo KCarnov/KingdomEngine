@@ -3,6 +3,7 @@
 
 std::unique_ptr<GameLayer0::GameData> GameLayer0::m_GameData = std::make_unique<GameData>();
 
+
 GameLayer0::GameLayer0()
 {
     m_ViewportWidth = Application::Get().GetWindowWidth();
@@ -26,9 +27,6 @@ void GameLayer0::OnCreate()
     // Create Terrain & Ground
     m_Terrain = new TerrainGenerator();
 
-    // Create Spaceship with MarchingCubes
-    m_mc = new MarchingCubes();
-
     KGLOG("GameLayer Created")
 }
 
@@ -43,7 +41,7 @@ void GameLayer0::OnUpdate(const float& dT)
         m_Terrain->Render();
 
 
-    m_mc->Render();
+    //m_mc->Render();
     //ship_bp->Render();
 
     // ---- RENDER GIZMOS ----
@@ -54,7 +52,7 @@ void GameLayer0::OnUpdate(const float& dT)
 void GameLayer0::OnEvent(Event& e)
 {
     camera->OnEvent(e);
-    m_mc->OnEvent(e);
+
     EventDispatcher dispatcher(e);
     dispatcher.Dispatch<MouseButtonPressedEvent>(std::bind(&GameLayer0::OnMouseClicked, this, std::placeholders::_1));
     dispatcher.Dispatch<MouseButtonReleasedEvent>(std::bind(&GameLayer0::OnMouseReleased, this, std::placeholders::_1));
@@ -128,31 +126,6 @@ void GameLayer0::OnImGui()
             ImGui::Checkbox("Show Base Grid", &m_gizmos->m_display.basegrid);
             if (ImGui::ColorEdit3("Grid Color##1", (float*)&m_gizmos->m_display.m_gridcolor))
                 m_gizmos->RefreshGridColor();
-        }
-
-        if (ImGui::CollapsingHeader("Marching Cubes"))
-        {
-
-
-            int cube_idx = m_mc->Index(m_mc->mc_display_opts.select_cube);
-            //ImGui::Text("DX,DZ : %i,%i", m_mc->mc_select_opts.dX, m_mc->mc_select_opts.dZ);
-            if (ImGui::Button("Add"))
-                m_mc->SetGridPointValue(cube_idx, 1.0f); // value of 1.0 by default
-            if(ImGui::Button("Del"))
-                m_mc->SetGridPointValue(cube_idx, 1.0f); // value of 1.0 by default
-
-            ImGui::VSliderInt("X", ImVec2(18, 160), &m_mc->mc_display_opts.select_cube.x, 0, m_mc->getGridDimension().x);
-            ImGui::SameLine();
-            ImGui::VSliderInt("Z", ImVec2(18, 160), &m_mc->mc_display_opts.select_cube.z, 0, m_mc->getGridDimension().z);
-            ImGui::SameLine();
-            ImGui::VSliderInt("Y", ImVec2(18, 160), &m_mc->mc_display_opts.select_cube.y, 0, m_mc->getGridDimension().y);
-
-            ImGui::Text("# triangles / Max triangles: %i / %i",m_mc->getCountTriangles(), m_mc->getMaxTriangles());
-            ImGui::Separator();
-
-            ImGui::DragFloat("aaa", &m_mc->mc_edit_points_opts.value, 0.1f, 0.0f, 1.0f);
-            if (ImGui::InputFloat("Point value", &m_mc->mc_edit_points_opts.value,0.1f,0.1f,"%.1f"))
-                m_mc->SetGridPointValue(m_mc->mc_edit_points_opts.selected_point, m_mc->mc_edit_points_opts.value);// value of 1.0 by default
         }
 
         if (ImGui::CollapsingHeader("Terrain"))

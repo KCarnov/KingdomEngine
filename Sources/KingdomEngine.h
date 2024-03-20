@@ -3,7 +3,9 @@
 #include <iostream>
 
 
-#define KGLOG(x) std::cout<< x <<std::endl;
+#define KGLOG(x) std::cout << x << std::endl;
+#define KGLOG3(v) std::cout << v.x << "," << v.y << "," << v.z << std::endl;
+
 
 template<typename T>
 using Scope = std::unique_ptr<T>;

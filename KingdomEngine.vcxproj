@@ -176,9 +176,6 @@
     <ClCompile Include="Sources\Renderer\Shader.cpp" />
     <ClCompile Include="Sources\Renderer\Texture.cpp" />
     <ClCompile Include="Sources\Renderer\VertexArray.cpp" />
-    <ClCompile Include="Sources\Spaceship\MarchingCubes.cpp" />
-    <ClCompile Include="Sources\Spaceship\SDF.cpp" />
-    <ClCompile Include="Sources\Spaceship\SpaceshipBlueprint.cpp" />
     <ClCompile Include="Sources\Terrain\TerrainGenerator.cpp" />
     <ClCompile Include="Sources\Window\Window.cpp" />
   </ItemGroup>
@@ -188,15 +185,6 @@
     <None Include="Ressources\shaders\gizmo\basegrid_vs.glsl" />
     <None Include="Ressources\shaders\gizmo\gizmo_fs.glsl" />
     <None Include="Ressources\shaders\gizmo\gizmo_vs.glsl" />
-    <None Include="Ressources\shaders\shaders_SpaceshipBlueprint\blueprint_fs.glsl" />
-    <None Include="Ressources\shaders\shaders_SpaceshipBlueprint\blueprint_grid_fs.glsl" />
-    <None Include="Ressources\shaders\shaders_SpaceshipBlueprint\blueprint_grid_gs.glsl" />
-    <None Include="Ressources\shaders\shaders_SpaceshipBlueprint\blueprint_grid_vs.glsl" />
-    <None Include="Ressources\shaders\shaders_SpaceshipBlueprint\blueprint_gs.glsl" />
-    <None Include="Ressources\shaders\shaders_SpaceshipBlueprint\blueprint_vs.glsl" />
-    <None Include="Ressources\shaders\shaders_SpaceshipBlueprint\select_cube_fs.glsl" />
-    <None Include="Ressources\shaders\shaders_SpaceshipBlueprint\select_cube_gs.glsl" />
-    <None Include="Ressources\shaders\shaders_SpaceshipBlueprint\select_cube_vs.glsl" />
     <None Include="Ressources\shaders\terrain\terrain_fs.glsl" />
     <None Include="Ressources\shaders\terrain\terrain_gs.glsl" />
     <None Include="Ressources\shaders\terrain\terrain_tcs.glsl" />
@@ -237,10 +225,6 @@
     <ClInclude Include="Sources\Renderer\Shader.h" />
     <ClInclude Include="Sources\Renderer\Texture.h" />
     <ClInclude Include="Sources\Renderer\VertexArray.h" />
-    <ClInclude Include="Sources\Spaceship\MarchingCubes.h" />
-    <ClInclude Include="Sources\Spaceship\MCTable.h" />
-    <ClInclude Include="Sources\Spaceship\SDF.h" />
-    <ClInclude Include="Sources\Spaceship\SpaceshipBlueprint.h" />
     <ClInclude Include="Sources\Systems\VelocitySystem.h" />
     <ClInclude Include="Sources\Terrain\TerrainGenerator.h" />
     <ClInclude Include="Sources\Window\Window.h" />
